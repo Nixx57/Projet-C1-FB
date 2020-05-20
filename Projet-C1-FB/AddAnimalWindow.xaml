@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projet_C1_FB"
         mc:Ignorable="d"
-        Title="AddAnimalWindow" Height="450" Width="800">
+        Title="AddAnimalWindow" Height="460" Width="810" ResizeMode="NoResize">
     <Grid>
         <TextBlock Margin="20,10,630,370" TextWrapping="Wrap" Text="Nom :" TextAlignment="Center" FontSize="24"/>
         <TextBlock Margin="20,70,630,310" TextWrapping="Wrap" Text="Espece :" TextAlignment="Center" FontSize="24"/>
@@ -13,6 +13,30 @@
         <TextBlock Margin="20,190,630,190" TextWrapping="Wrap" Text="Genre :" TextAlignment="Center" FontSize="24"/>
         <TextBlock Margin="20,250,630,130" TextWrapping="Wrap" Text="Age :" TextAlignment="Center" FontSize="24"/>
         <TextBlock Margin="20,310,630,35" TextWrapping="Wrap" Text="Région d'habitation :" TextAlignment="Center" FontSize="24"/>
+        <TextBox x:Name="nameField" Margin="160,10,430,370" TextWrapping="Wrap" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+        <ComboBox x:Name="especeField" Margin="160,70,430,310" Width="202" Height="39" DisplayMemberPath="Nom"/>
+        <TextBox x:Name="raceField" Margin="160,130,430,250" TextWrapping="Wrap" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+        <ComboBox x:Name="genreField" Margin="160,190,430,190" Width="202" Height="39"/>
+        <TextBox x:Name="ageField" Margin="162,250,428,130" TextWrapping="Wrap" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="regionHabField" Margin="162,310,428,35" TextWrapping="Wrap" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+        <Button Content="OK" Margin="460,130,175,250" Click="Save"/>
+        <Button Content="Annuler" Margin="460,210,175,170" Click="Cancel"/>
 
     </Grid>
 </Window>

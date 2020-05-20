@@ -30,6 +30,24 @@ namespace Projet_C1_FB
         {
             InitializeComponent();
             db = DB;
+            especeList.ItemsSource = db.ListEspeces.ToList();
+        }
+
+        private void SelectItem(object sender, SelectionChangedEventArgs e)
+        {
+            IdField.Text = ((Espece)especeList.SelectedItem).Id.ToString();
+            NameField.Text = ((Espece)especeList.SelectedItem).Nom;
+
+            NbField.Text = (from anim in db.ListAnimaux
+                            where anim.EspeceId == ((Espece)especeList.SelectedItem).Id
+                            select anim).Count().ToString();
+
+            NbMaxField.Text = ((Espece)especeList.SelectedItem).NbMaxATuer.ToString();
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            especeList.ItemsSource = db.ListEspeces.ToList();
         }
     }
 }

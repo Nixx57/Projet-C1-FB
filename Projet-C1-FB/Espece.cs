@@ -9,6 +9,10 @@ namespace Projet_C1_FB
 {
     public class Espece
     {
+        public Espece()
+        {
+        }
+
         public Espece(string nom, int nbMaxATuer)
         {
             Nom = nom;
@@ -18,7 +22,6 @@ namespace Projet_C1_FB
         [Key]
         public int Id { get; set; }
         public string Nom { get; set; }
-        public int NbAnimaux { get; }
         public int NbMaxATuer { get; set; }
     }
 }

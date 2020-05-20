@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projet_C1_FB"
         mc:Ignorable="d"
-        Title="AddEspeceWindow" Height="300" Width="600">
+        Title="AddEspeceWindow" Height="305" Width="610" ResizeMode="NoResize">
     <Grid>
         <TextBlock Margin="20,50,330,160" TextWrapping="Wrap" Text="Nom :" FontSize="36" TextAlignment="Center" FontWeight="Bold"/>
-        <TextBlock Margin="20,160,330,50" TextWrapping="Wrap" Text="Nombre max autorisé à tuer par an :" FontSize="22" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock Margin="20,160,330,50" TextWrapping="Wrap" Text="Nombre max autorisé à être tué par an :" FontSize="22" TextAlignment="Center" FontWeight="Bold"/>
         <TextBox x:Name="nameBox" Margin="270,50,20,160" TextWrapping="Wrap" FontSize="36" TextAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
         <TextBox x:Name="nbMaxBox" Margin="270,160,20,50" TextWrapping="Wrap" FontSize="36" TextAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
         <Button Content="OK" Margin="380,230,150,10" Click="Save"/>

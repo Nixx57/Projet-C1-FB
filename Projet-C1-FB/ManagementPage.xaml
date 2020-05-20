@@ -9,8 +9,18 @@
       Title="ManagementPage">
 
     <Grid Background="White">
-        <ListBox Margin="10,10,410,230" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
-        <ListBox Margin="10,230,410,10" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+        <ListBox x:Name="especeList" Margin="10,10,410,230" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" DisplayMemberPath="Nom"/>
+        <DataGrid x:Name="animalGrid" Margin="10,230,410,10" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Nom}" Header="Nom" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Espece.Nom}" Header="Espece" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Race}" Header="Race" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Genre}" Header="Genre" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Age}" Header="Age" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding RegionHabitat}" Header="Region d'habitation" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Ajouter une espèce" Margin="460,50,60,300" Click="AddEspece"/>
         <Button Content="Ajouter un animal" Margin="460,300,60,50" Click="AddAnimal"/>
 

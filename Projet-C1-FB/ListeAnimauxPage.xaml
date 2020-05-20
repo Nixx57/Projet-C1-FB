@@ -9,13 +9,25 @@
       Title="ListeAnimauxPage">
 
     <Grid Background="White">
-        <DataGrid Margin="10,10,190,10"/>
-        <ComboBox Margin="601,105,10,254" SelectionChanged="ComboBox_SelectionChanged"/>
-        <ComboBox Margin="601,208,10,151" SelectionChanged="ComboBox_SelectionChanged"/>
-        <TextBlock Margin="601,315,10,46" TextWrapping="Wrap" TextAlignment="Center" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
-        <TextBox Margin="601,10,10,341" TextWrapping="Wrap" Text="Filtres" TextAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="24"/>
+        <DataGrid x:Name="animalsGrid" Margin="10,10,190,10" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Nom}" Header="Nom" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Espece.Nom}" Header="Espece" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Race}" Header="Race" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Genre}" Header="Genre" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Age}" Header="Age" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding RegionHabitat}" Header="Region d'habitation" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="genderFilter" Margin="601,105,10,254" SelectionChanged="Filter_SelectionChanged"/>
+        <ComboBox x:Name="especeFilter" Margin="601,208,10,151" DisplayMemberPath="Nom" SelectionChanged="Filter_SelectionChanged"/>
+        <TextBox x:Name="regionHabFilter" Margin="601,315,10,46" TextWrapping="Wrap" TextAlignment="Center" FontSize="20" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" TextChanged="regionHabFilter_TextChanged"/>
+        <TextBlock Margin="601,10,10,341" TextWrapping="Wrap" Text="Filtres" TextAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontSize="24"/>
         <TextBlock Margin="601,75,10,291" TextWrapping="Wrap" Text="Sexe :" FontSize="18" TextAlignment="Center"/>
         <TextBlock Margin="601,178,10,188" TextWrapping="Wrap" Text="Especes :" FontSize="18" TextAlignment="Center"/>
         <TextBlock Margin="601,285,10,81" TextWrapping="Wrap" Text="Région d'habitation :" FontSize="18" TextAlignment="Center"/>
+        <CheckBox x:Name="switchFilter" Content="Activer filtre" HorizontalAlignment="Left" Margin="601,55,0,0" VerticalAlignment="Top" Checked="Switch_on" Unchecked="Switch_off"/>
+        <Button Content="Actualiser" Margin="650,350,55,10" Click="Refresh"/>
     </Grid>
 </Page>

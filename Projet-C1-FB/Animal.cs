@@ -30,7 +30,7 @@ namespace Projet_C1_FB
         }
 
         public string Nom { get; set; }
-        [Key]
+        [Key, Column(Order = 1)]
         public int Id { get; set; }
         public int EspeceId { get; set; }
         [ForeignKey("EspeceId")]

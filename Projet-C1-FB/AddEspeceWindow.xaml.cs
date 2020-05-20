@@ -36,7 +36,7 @@ namespace Projet_C1_FB
                 db.SaveChanges();
                 Close();
             }
-            catch(Exception)
+            catch(FormatException)
             {
                 MessageBox.Show("Entrez des données valide");
             }

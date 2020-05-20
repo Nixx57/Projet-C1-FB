@@ -19,9 +19,36 @@ namespace Projet_C1_FB
     /// </summary>
     public partial class AddAnimalWindow : Window
     {
-        public AddAnimalWindow()
+        private ApplicationContext db;
+        public AddAnimalWindow(ApplicationContext DB)
         {
             InitializeComponent();
+            db = DB;
+            especeField.ItemsSource = db.ListEspeces.ToList();
+            genreField.ItemsSource = Enum.GetValues(typeof(Gender));
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            Espece queryEspece = (from espece in db.ListEspeces
+                                  where espece.Nom == ((Espece)especeField.SelectedItem).Nom
+                                  select espece).FirstOrDefault();
+            try
+            {
+                Animal animal = new Animal(nameField.Text, queryEspece, raceField.Text, (Gender)Convert.ToInt32(genreField.SelectedIndex), Convert.ToInt32(ageField.Text), regionHabField.Text);
+                db.ListAnimaux.Add(animal);
+                db.SaveChanges();
+                Close();
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Entrez des données valide");
+            }
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -30,17 +30,28 @@ namespace Projet_C1_FB
         {
             InitializeComponent();
             db = DB;
+            especeList.ItemsSource = db.ListEspeces.ToList();
+            animalGrid.ItemsSource = db.ListAnimaux.ToList();
         }
 
         private void AddEspece(object sender, RoutedEventArgs e)
         {
             AddEspeceWindow especeWindow = new AddEspeceWindow(db);
             especeWindow.Show();
+            especeWindow.Closed += Refresh;
         }
 
         private void AddAnimal(object sender, RoutedEventArgs e)
         {
+            AddAnimalWindow animalWindow = new AddAnimalWindow(db);
+            animalWindow.Show();
+            animalWindow.Closed += Refresh;
+        }
 
+        private void Refresh(object sender, EventArgs e)
+        {
+            especeList.ItemsSource = db.ListEspeces.ToList();
+            animalGrid.ItemsSource = db.ListAnimaux.ToList();
         }
     }
 }
